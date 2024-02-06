@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: #ff0000;
+        }
+      
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="validateForm(); return false;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="email">email:</label>
+        <input type="email" id="email" name="email"  pattern=".+@gmail\.com" required>
+        <h3>Gender</h3>
+         <label for="gender">
+            <input type="radio" id="gender" name="male" required> male
+             
+            </label>
+            <label for="gender">
+            <input type="radio" id="gender" name="male" required>female
+              
+            </label>
+            <label for="gender">
+                <input type="radio" id="gender" name="male" required>other
+                </label>
+
+       <h3> <label for="cource">select Your Cource:</h3>
+        
+                <select name="cource" id="cource" required>
+                  <option value="python">Python</option>
+                  <option value="java">Java</option>
+                  <option value="java script">JavaScripts</option>
+                  <option value="html">html</option>
+                </select></label>
+
+             
+                    
+                    
+       
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <span id="passwordError" class="error"></span>
+
+        <button type="submit">Register</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        var email = document.getElementById('email').value;
+
+        var passwordError = document.getElementById('passwordError');
+
+        if (password !== confirmPassword) {
+            passwordError.textContent = "Passwords do not match.";
+            return;
+        }
+        alert('Registration successful!');
+    }
+
+    function resetForm() {
+        document.getElementById('registrationForm').reset();
+        document.getElementById('passwordError').textContent = '';
+    }
+</script>
+
+</body>
+</html>
